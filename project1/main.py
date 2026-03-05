@@ -65,14 +65,14 @@ class MonthView(ctk.CTkFrame):
         
         days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
         for i, day in enumerate(days):
-            calendar_container.columnconfigure(i, weight=1)
+            calendar_container.columnconfigure(i, weight=1, uniform="col")
             header_cell = ctk.CTkFrame(calendar_container, fg_color=BG_COLOR, corner_radius=0, height=40)
             header_cell.grid(row=0, column=i, sticky="nsew", padx=1, pady=1)
             header_cell.pack_propagate(False)
             ctk.CTkLabel(header_cell, text=day, font=("Helvetica", 12, "bold"), text_color=TEXT_SECONDARY).pack(pady=10)
             
         for row in range(1, 6):
-            calendar_container.rowconfigure(row, weight=1)
+            calendar_container.rowconfigure(row, weight=1, uniform="row")
             for col in range(7):
                 day_num = (row - 1) * 7 + col - 2
                 
@@ -83,7 +83,7 @@ class MonthView(ctk.CTkFrame):
                     ctk.CTkLabel(cell, text=str(day_num), font=("Helvetica", 14), text_color=TEXT_PRIMARY).pack(anchor="nw", padx=10, pady=10)
                     
                     if day_num == 15:
-                        event_lbl = ctk.CTkLabel(cell, text="● EVENT", text_color=ACCENT_COLOR, font=("Helvetica", 10, "bold"))
+                        event_lbl = ctk.CTkLabel(cell, text="● PAP0124", text_color=ACCENT_COLOR, font=("Helvetica", 10, "bold"))
                         event_lbl.pack(side="bottom", anchor="w", padx=10, pady=10)
                         event_lbl.bind("<Button-1>", lambda e: self.switch_to_details())
                         cell.bind("<Button-1>", lambda e: self.switch_to_details())
