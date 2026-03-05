@@ -44,7 +44,7 @@ class DatePickerPopup(ctk.CTkToplevel):
         self.days_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.days_frame.pack(fill="both", expand=True, padx=10, pady=10)
         
-        days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+        days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
         for i, day in enumerate(days):
             self.days_frame.columnconfigure(i, weight=1, uniform="col")
             ctk.CTkLabel(self.days_frame, text=day, text_color=TEXT_SECONDARY, font=("Helvetica", 12, "bold")).grid(row=0, column=i)
@@ -76,7 +76,7 @@ class DatePickerPopup(ctk.CTkToplevel):
         self.month_lbl.configure(text=f"{month_name} {self.current_year}")
 
         first_weekday, num_days = calendar.monthrange(self.current_year, self.current_month)
-        start_col = (first_weekday + 1) % 7
+        start_col = first_weekday
 
         day_counter = 1
         for row in range(1, 7):
@@ -206,7 +206,7 @@ class MonthView(ctk.CTkFrame):
         self.calendar_container = ctk.CTkFrame(self, fg_color=BORDER_COLOR, corner_radius=0)
         self.calendar_container.pack(fill="both", expand=True, padx=40, pady=(0, 40))
         
-        days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+        days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
         for i, day in enumerate(days):
             self.calendar_container.columnconfigure(i, weight=1, uniform="col")
             header_cell = ctk.CTkFrame(self.calendar_container, fg_color=BG_COLOR, corner_radius=0, height=40)
@@ -215,7 +215,7 @@ class MonthView(ctk.CTkFrame):
             ctk.CTkLabel(header_cell, text=day, font=("Helvetica", 12, "bold"), text_color=TEXT_SECONDARY).pack(pady=10)
             
         first_weekday, num_days = calendar.monthrange(self.current_year, self.current_month)
-        start_col = (first_weekday + 1) % 7
+        start_col = first_weekday
         
         day_counter = 1
         for row in range(1, 7):
