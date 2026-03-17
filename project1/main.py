@@ -426,15 +426,18 @@ class App(ctk.CTk):
         self.hide_all()
         self.month_view.build_calendar()
         self.month_view.pack(fill="both", expand=True)
+        self.update_idletasks()
 
     def show_add_event(self):
         self.hide_all()
         self.add_event_view.pack(fill="both", expand=True)
+        self.update_idletasks()
 
     def show_event_details(self, date_str):
         self.hide_all()
         self.event_details_view.load_event(date_str)
         self.event_details_view.pack(fill="both", expand=True)
+        self.update_idletasks()
 
 if __name__ == "__main__":
     app = App()
