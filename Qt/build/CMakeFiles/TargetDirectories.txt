@@ -1,5 +1,0 @@
-/home/matej/dev/URO/Qt/build/CMakeFiles/EventPlanner.dir
-/home/matej/dev/URO/Qt/build/CMakeFiles/edit_cache.dir
-/home/matej/dev/URO/Qt/build/CMakeFiles/rebuild_cache.dir
-/home/matej/dev/URO/Qt/build/CMakeFiles/EventPlanner_autogen_timestamp_deps.dir
-/home/matej/dev/URO/Qt/build/CMakeFiles/EventPlanner_autogen.dir
